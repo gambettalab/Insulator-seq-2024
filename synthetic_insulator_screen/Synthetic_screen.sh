@@ -1,5 +1,14 @@
 ########## DNA-seq #########
 
+# Create empty folder structure
+
+test ! -d data && mkdir data
+test ! -d result && mkdir result
+
+# Prepare barcode list with no or one mismatch
+
+./script/make_mismatch.pl > script/BC_list_no_or_one_mm_index.txt
+
 # Unzip the files
 
 gzip -dc data/Synthetic_DNA_seq_1.fq.gz |paste - - - - |cut -f 2 > result/DNA_seq_SI_1.seq 
