@@ -1,6 +1,18 @@
 #!/bin/bash
 
 ########## DNA-seq #########
+
+# Create empty folder structure
+
+test ! -d data && mkdir data
+test ! -d result && mkdir result
+test ! -d result/DNAseq && mkdir result/DNAseq
+test ! -d result/RNAseq && mkdir result/RNAseq
+
+# Prepare barcode list with no or one mismatch
+
+./script/make_mismatch.pl > script/BC_list_no_or_one_mm_index.txt
+
 # Unzip the files
 
 gzip -dc data/eve_DNA_seq_1.fq.gz |paste - - - - |cut -f 2 > result/DNAseq/eve_DNA_seq_R1_1.seq 
@@ -48,6 +60,10 @@ sort -k 4,4 result/DNAseq/eve_mapped_DNA_R1.bed |uniq > result/DNAseq/eve_mapped
 
 ############# RNAseq without UMI #############
 
+# Unzip the file 
+
+gzip -dc data/eve_RNA_rep1_L1_1.fq.gz |paste - - - - |cut -f 2 > data/eve_Rep1_RNAseq.seq
+gzip -dc data/eve_RNA_rep1_L2_1.fq.gz |paste - - - - |cut -f 2 >> data/eve_Rep1_RNAseq.seq
 
 # Assign barcode and gene ID for spike-in controls and make a count table
 
@@ -64,10 +80,6 @@ sort -k 4,4 result/DNAseq/eve_mapped_DNA_R1.bed |uniq > result/DNAseq/eve_mapped
 
 ############## RNA-seq with UMI ###################### 
 
-# Unzip the file 
-
-gzip -dc data/eve_RNA_rep1_L1_1.fq.gz |paste - - - - |cut -f 2 > data/eve_Rep1_RNAseq.seq
-gzip -dc data/eve_RNA_rep1_L2_1.fq.gz |paste - - - - |cut -f 2 >> data/eve_Rep1_RNAseq.seq
 
 
 # Assign barcode and gene ID for spike-in controls and make a count table
