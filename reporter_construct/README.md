@@ -1,1 +1,1 @@
-The `reporter_construct/` directory contains an example of insulator reporter acceptor plasmid in GeneBank format. The reporter genes and their barcodes are annotated. PCR primers used during DNA- and RNA-seq library preparation are provided.
+The `reporter_construct/` directory contains an example of insulator reporter acceptor plasmid and a final reporter in GeneBank format. The reporter genes and their barcodes are annotated. PCR primers used during DNA- and RNA-seq library preparation are provided.
