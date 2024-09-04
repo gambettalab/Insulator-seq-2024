@@ -1,0 +1,39 @@
+#
+#  Global parameters
+#
+
+paths:
+  projectpath: /home/ajank/insulator_screen
+  datadir: data
+  genomedatadir: data/genome
+  resultsdir: results
+  configdir: config
+  envdir: env
+  tmpdir: tmp
+  srcdir: src
+  shellsrcdir: src/sh
+  pysrcdir: src/python
+  Rsrcdir: src/R
+  snakemakesrcdir: src/snakemake
+
+genome: # if the project uses a single genome assembly
+  symbol: "dm6"
+  chromosomes: "chr2L chr2R chr3L chr3R chr4 chrX chrY"
+  fasta: "data/genome/D.melanogaster/dm6/ucsc/fasta/dm6.fa"
+  chrom_sizes: "data/genome/D.melanogaster/dm6/ucsc/fasta/dm6.chrom.sizes"
+
+#
+#  More parameters here
+#
+
+Bisulfite-Seq:
+  dataset_to_library_sra:
+    # Genome-wide single molecule footprinting reveals high RNA polymerase II turnover at paused promoters
+    # Krebs et al., Mol Cell 2017, PMID: 28735898
+    # Run  Assay Type  Bases  cell_line  LibraryLayout  LibrarySelection  LibrarySource  Organism  Sample Name  sample_type  source_name  footprint_conditions
+    # - "SRR3133324" #  Bisulfite-Seq  29413387800  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050817  whole-genome bisulfite sequencing  S2\, untreated  McviPI footprint
+    # - "SRR3133325" #  Bisulfite-Seq  30000000000  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050818  whole-genome bisulfite sequencing  S2\, untreated  SssI footprint
+    - "SRR3133326" #  Bisulfite-Seq  14525631300  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050819  whole-genome bisulfite sequencing  S2\, untreated  McviPI and SssI footprint
+    - "SRR3133327" #  Bisulfite-Seq  14675394900  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050820  whole-genome bisulfite sequencing  S2\, untreated  McviPI and SssI footprint
+    - "SRR3133328" #  Bisulfite-Seq  14209770600  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050821  whole-genome bisulfite sequencing  S2\, untreated  McviPI and SssI footprint
+    - "SRR3133329" #  Bisulfite-Seq  14342239500  S2 (Schneider cells)  PAIRED  RANDOM  GENOMIC  Drosophila melanogaster  GSM2050822  whole-genome bisulfite sequencing  S2\, untreated  McviPI and SssI footprint
